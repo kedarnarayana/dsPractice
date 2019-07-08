@@ -11,7 +11,7 @@ Open brackets must be closed by the same type of brackets.
 Open brackets must be closed in the correct order.
 Note that an empty string is also considered valid.*/
 	public static void main(String[] args) {
-		System.out.println(isValid("([])"));
+		System.out.println(isValid("([{}])"));
 
 	}
 public static boolean isValid(String s) {
@@ -31,8 +31,9 @@ public static boolean isValid(String s) {
                         sb.deleteCharAt(sbLength-1);
                         sbLength--;
                     }else{
-                        sb.append(c);
-                        sbLength++;
+                    	return false;
+                       // sb.append(c);
+                       // sbLength++;
                     }
             }else{
                  sb.append(c);
