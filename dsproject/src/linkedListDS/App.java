@@ -4,16 +4,23 @@ public class App {
 
 	public static void main(String[] args) {
 		
-	/*	LinkedList<Integer> list = new LinkedList<>();
+		LinkedList<Integer> list = new LinkedList<>();
 		
 		list.insert(12);
 		list.insert(27);
 		list.insert(42);
 		list.insert(21);
 		
-		list.traverseList(); */
 		
-		LinkedList<Person> list = new LinkedList<>();
+		//System.out.println(list.getMiddleNode());
+		
+		list.traverseList(); 
+		System.out.println();
+		list.reverse();
+		
+		list.traverseList(); 
+		
+		/*LinkedList<Person> list = new LinkedList<>();
 		
 		Person p1 = new Person("kedar",27);
 		Person p2 = new Person("Guru",28);
@@ -33,7 +40,7 @@ public class App {
 		
 		System.out.println(list.size());
 		
-		list.traverseList();
+		list.traverseList();*/
 		
 	}
 

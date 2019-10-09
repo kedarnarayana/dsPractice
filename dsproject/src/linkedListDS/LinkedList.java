@@ -25,6 +25,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
 	}
 
 	// O(N)
+	@SuppressWarnings("unused")
 	private void insertDataAtEnd(T data, Node<T> node) {
 
 		if (node.getNextNode() != null) {
@@ -81,6 +82,42 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
 	@Override
 	public int size() {
 		return sizeOfList;
+	}
+
+	// An in-place (without extra memory) algorithm thats able to find the middle node
+	@Override
+	public Node<T> getMiddleNode() {
+
+		if (this.root == null)
+			return null;
+
+		Node<T> fastPointer = this.root;
+		Node<T> slowPointer = this.root;
+
+		while (fastPointer.getNextNode() != null && fastPointer.getNextNode().getNextNode() != null) {
+			fastPointer = fastPointer.getNextNode().getNextNode();
+			slowPointer = slowPointer.getNextNode();
+			// System.out.println("fp: " + fastPointer + "; sp:" + slowPointer);
+		}
+
+		return slowPointer;
+	}
+
+	// An in-place algorithm to reverse a linked list!
+	@Override
+	public void reverse() {
+		Node<T> currentNode = this.root;
+		Node<T> previousNode = null;
+		Node<T> nextNode = null;
+
+		while (currentNode != null) {
+			nextNode = currentNode.getNextNode();
+			currentNode.setNextNode(previousNode);
+			previousNode = currentNode;
+			currentNode = nextNode;
+		}
+		this.root = previousNode;
+
 	}
 
 }
